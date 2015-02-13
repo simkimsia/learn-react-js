@@ -14,7 +14,7 @@
 	var APP = React.createClass({
 		propTypes:{
 			txt:React.PropTypes.string,
-			cat:React.PropTypes.number
+			cat:React.PropTypes.number.isRequired
 		},		
 		render: function() {
 			console.log(this.props.txt);
