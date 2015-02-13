@@ -15,14 +15,14 @@
 		render: function() {
 			return (
 				<div>
-					<h1>Hello World</h1>
+					<h1>{this.props.txt}</h1>
 					<b>bold</b>
 				</div>
 			);
 		}
 	});
 
-	React.render(<APP />, document.body);
+	React.render(<APP txt="this is the txt prop"/>, document.body);
 	</script>
 </body>
 </html>
