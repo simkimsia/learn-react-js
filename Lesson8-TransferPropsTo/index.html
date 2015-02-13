@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name=description content="">
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<title>Props.children</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0-beta.1/react.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0-beta.1/JSXTransformer.js"></script>
+	<style type="text/css">
+		body{margin: 25px;}
+	</style>
+</head>
+<body>
+	<script type="text/jsx">
+	/** @jsx React.DOM */
+	var APP = React.createClass({
+		render: function() {
+			return (
+				<BButton>I <BHeart /> React</BButton>
+			);
+		}
+	});
+
+	var BButton = React.createClass({
+		render: function() {
+			return (
+				<a className="btn btn-primary">{this.props.children}</a>
+			);
+		}
+	});
+
+	var BHeart = React.createClass({
+		render: function() {
+			return (
+				<span className="glypicon glyphicon-heart"></span>
+			);
+		}
+	});
+
+	React.render(<APP />, document.body);
+	</script>
+</body>
+</html>
