@@ -12,6 +12,12 @@
 	<script type="text/jsx">
 	/** @jsx React.DOM */
 	var APP = React.createClass({
+		getDefaultProps:function() {
+			return {
+				txt:'',
+				cat:0
+			};
+		},		
 		propTypes:{
 			txt:React.PropTypes.string,
 			cat:React.PropTypes.number.isRequired
