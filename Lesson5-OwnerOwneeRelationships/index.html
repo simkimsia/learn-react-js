@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name=description content="">
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<title>Owner Ownee</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0-beta.1/react.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0-beta.1/JSXTransformer.js"></script>
+</head>
+<body>
+	<script type="text/jsx">
+	/** @jsx React.DOM */
+	var APP = React.createClass({
+		getInitialState: function() {
+			return {
+				txt: 'this is my state txt'
+			}
+		},
+		updateTxt: function(e) {
+			this.setState({txt: e.target.value});
+		},
+		render: function() {
+			return (
+				<div>
+					<input type="text" onChange={this.updateTxt} />
+					<h1>{this.state.txt}</h1>
+				</div>
+			);
+		}
+	});
+
+	React.render(<APP cat={5} txt="this is the txt prop"/>, document.body);
+	</script>
+</body>
+</html>
