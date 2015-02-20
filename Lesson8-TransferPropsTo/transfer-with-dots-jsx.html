@@ -13,7 +13,7 @@
 	</style>
 </head>
 <body>
-	<script type="text/jsx">
+	<script type="text/jsx;harmony=true">
 	/** @jsx React.DOM */
 	var APP = React.createClass({
 		render: function() {
@@ -29,9 +29,10 @@
 
 	var BButton = React.createClass({
 		render: function() {
+			var { className, ...other } = this.props;
 			return (
 				<div>
-					<a className={this.props.className} {...this.props}>{this.props.children}</a>
+					<a className={className} {...other}>{this.props.children}</a>
 				</div>
 			);
 		}
