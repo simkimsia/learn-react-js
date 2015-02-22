@@ -13,8 +13,12 @@
 	</style>
 </head>
 <body>
+	<button onClick="render()">Render</button>
+	<button onClick="unmount()">Unmount</button>
+	<hr />
 	<div id="panel"></div>
-	<script type="text/jsx">
+
+	<script type="text/jsx;harmony=true">
 	/** @jsx React.DOM */
 	var APP = React.createClass({
 		update:function() {
@@ -27,12 +31,27 @@
 		render: function() {
 			console.log("hello world");
 			return <button onClick={this.update}>{this.props.val}</button>
+		},
+		componentDidMount:function() {
+			console.log("nice place you got here");
+		},
+		componentWillUnMount:function() {
+			console.log("goodbye cruel world!");
 		}
 	});
-	React.render(
-		<APP val={0} />,
-		document.getElementById('panel')
-	);
+	window.render = function() {
+		React.render(
+			<APP val={0} />,
+			document.getElementById('panel')
+		);	
+	};
+
+	window.unmount = function() {
+		React.unmount(
+			document.getElementById('panel')
+		);	
+	};
+	
 	</script>
 </body>
 </html>
