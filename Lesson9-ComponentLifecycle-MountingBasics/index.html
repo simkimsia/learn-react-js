@@ -13,6 +13,23 @@
 	</style>
 </head>
 <body>
-	
+	<div id="panel"></div>
+	<script type="text/jsx">
+	/** @jsx React.DOM */
+	var APP = React.createClass({
+		update:function() {
+			var newVal = this.props.val + 1;
+			this.setProps({val:newVal});
+		},
+		render: function() {
+			console.log("hello world");
+			return <button onClick={this.update}>{this.props.val}</button>
+		}
+	});
+	React.render(
+		<APP val={0} />,
+		document.getElementById('panel')
+	);
+	</script>
 </body>
 </html>
