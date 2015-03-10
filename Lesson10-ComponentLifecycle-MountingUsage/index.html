@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name=description content="">
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<title>Component Lifecycle: Mounting</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0-beta.1/react.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0-beta.1/JSXTransformer.js"></script>
+	<style type="text/css">
+		body{margin: 25px;}
+	</style>
+</head>
+<body>
+	<button onClick="render()">Render</button>
+	<button onClick="unmount()">Unmount</button>
+	<hr />
+	<div id="panel"></div>
+
+	<script type="text/jsx;harmony=true">
+	/** @jsx React.DOM */
+	var APP = React.createClass({
+		update:function() {
+			var newVal = this.props.val + 1;
+			this.setProps({val:newVal});
+		},
+		componentWillMount:function() {
+			console.log("here i go");
+		},
+		render: function() {
+			console.log("hello world");
+			return <button onClick={this.update}>{this.props.val}</button>
+		},
+		componentDidMount:function() {
+			console.log("nice place you got here");
+		},
+		componentWillUnMount:function() {
+			console.log("goodbye cruel world!");
+		}
+	});
+	window.render = function() {
+		React.render(
+			<APP val={0} />,
+			document.getElementById('panel')
+		);	
+	};
+
+	window.unmount = function() {
+		React.unmountComponentAtNode(
+			document.getElementById('panel')
+		);	
+	};
+	
+	</script>
+</body>
+</html>
